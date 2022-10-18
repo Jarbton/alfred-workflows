@@ -1,5 +1,5 @@
 import os
-from sys import argv
+from sys import argv, stdout
 
 
 def main():
@@ -28,8 +28,8 @@ def main():
             url += "%20" + item
 
     # Return to Alfred
-    # stdout.write(url)
-    print(url)
+    stdout.write(url)
+    # print(url)
 
 
 if __name__ == "__main__":
