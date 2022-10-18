@@ -1,5 +1,5 @@
-from subprocess import getoutput
 from json import dumps
+from subprocess import getoutput
 from sys import stdout
 
 # Get shortcuts and split into a list
@@ -14,21 +14,12 @@ for item in search_results:
         "subtitle": item,
         "arg": item,
         "autocomplete": item,
-        "icon": {
-            "path": "./icon.png"
-        },
-        "mods": {
-            "cmd": {
-                "subtitle": f"View {item} in Shortcuts app",
-                "arg": item
-            }
-        }
+        "icon": {"path": "./icon.png"},
+        "mods": {"cmd": {"subtitle": f"View {item} in Shortcuts app", "arg": item}},
     }
 
     alfred_results.append(result)
 
-response = dumps({
-    "items": alfred_results
-})
+response = dumps({"items": alfred_results})
 
 stdout.write(response)

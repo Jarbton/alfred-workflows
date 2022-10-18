@@ -1,13 +1,12 @@
 import os
-from sys import stdout, argv
-
+from sys import argv, stdout
 
 # Get username from Alfred environment variable
-username = os.getenv('monzo_username')
+username = os.getenv("monzo_username")
 
 # Get input args from Alfred
 args = argv[1:]
-cost = args[0] # TODO: Validate this is a number
+cost = args[0]  # TODO: Validate this is a number
 
 # Generate url with username and cost
 url = "https://monzo.me/" + username + "/" + cost
