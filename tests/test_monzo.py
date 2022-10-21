@@ -8,8 +8,23 @@ from workflows.monzo.src import monzo
 @mark.parametrize(
     "username,reason,expected",
     [
-        ("username1", ["10", "Item"], "https://monzo.me/username1/10?d=Item\n"),
-        ("username2", ["10"], "https://monzo.me/username2/10\n"),
+        (
+            "username1",
+            ["10", "Item"],
+            "https://monzo.me/username1/10?d=Item",
+        ),  # cost and reason
+        (
+            "username2",
+            ["10", "Item", "with", "spaces"],
+            "https://monzo.me/username2/10?d=Item%20with%20spaces",
+        ),  # cost and reason with spaces
+        ("username3", ["10"], "https://monzo.me/username3/10"),  # cost only
+        (
+            "username4",
+            ["10.99"],
+            "https://monzo.me/username4/10.99",
+        ),  # cost with decimal
+        ("username5", [], "https://monzo.me/username5"),  # no cost or reason
     ],
 )
 def test_e2e_url_generator(
