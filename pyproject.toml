@@ -4,7 +4,7 @@ version = "1.0.1"
 description = ""
 authors = ["Jarbton <j.barton.mail@googlemail.com>"]
 readme = "README.md"
-packages = [{include = "alfred_workflows"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.10"
