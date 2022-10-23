@@ -1,5 +1,5 @@
 import os
-from sys import argv
+from sys import argv, stderr
 
 
 def main():
@@ -12,6 +12,7 @@ def main():
     """
     # Get username from Alfred environment variable
     username = os.getenv("monzo_username")
+    print(f"Username: {username}", file=stderr)
 
     # Get input args from Alfred
     args = argv[1:]
@@ -21,6 +22,7 @@ def main():
 
     # Check if args were provided
     if len(args) > 0:
+        print(f"Args: {args}", file=stderr)
         url += "/" + args[0]  # TODO: Validate this is a number
 
         # Try to get reason from args
