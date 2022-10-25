@@ -12,13 +12,15 @@ def main():
     print(f"Input: {input_string}", file=stderr)
 
     output_strings = {
+        "spongebob": spongebob_case(input_string),
         "upper": input_string.upper(),
         "lower": input_string.lower(),
         "title": input_string.title(),
         "pascal": input_string.title().replace(" ", ""),
-        "snake": input_string.replace(" ", "_"),
+        "camel": input_string.split(" ")[0].lower()
+        + "".join(ele.title() for ele in input_string.split(" ")[1:]),
+        "snake": input_string.lower().replace(" ", "_"),
         "kebab": input_string.lower().replace(" ", "-"),
-        "spongebob": spongebob_case(input_string),
     }
 
     alfred_results = []
@@ -31,7 +33,7 @@ def main():
             "icon": {"path": f"./icons/{key}.png"},
             "mods": {
                 "cmd": {
-                    "subtitle": f"Paste {key} case to cursor position",
+                    "subtitle": f"Copy {key} case to clipboard",
                     "arg": value,
                 }
             },
