@@ -4,7 +4,7 @@ A repo for maintaining Alfred 5 workflows.
 The majority of the workflows are Python variations of [rknightuk's JavaScript alfred-workflows](https://github.com/rknightuk/alfred-workflows).
 
 ## Workflows
-### Text Transform - [Download v1.0.2](workflows/text-transform/text-transform.alfredworkflow)
+### Text Transform - [Download v1.0.2](workflows/text-transform/texttransform.alfredworkflow)
 
 Transform provided text to various cases.
 
