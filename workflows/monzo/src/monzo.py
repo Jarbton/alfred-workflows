@@ -23,7 +23,21 @@ def main():
     # Check if args were provided
     if len(args) > 0:
         print(f"Args: {args}", file=stderr)
-        url += "/" + args[0]  # TODO: Validate this is a number
+
+        cost = args[0]
+
+        # Check if cost is a number
+        try:
+            float(cost)
+        except ValueError:
+            print(
+                "Cost must be the first argument and must be a valid number",
+                file=stderr,
+            )
+            print(url, end="")
+            return
+
+        url += "/" + cost
 
         # Try to get reason from args
         for index, item in enumerate(args[1:]):
