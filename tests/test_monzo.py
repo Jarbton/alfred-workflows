@@ -25,6 +25,16 @@ from workflows.monzo.src import monzo
             "https://monzo.me/username4/10.99",
         ),  # cost with decimal
         ("username5", [], "https://monzo.me/username5"),  # no cost or reason
+        (
+            "username6",
+            ["not", "a", "number"],
+            "https://monzo.me/username6",
+        ),  # not a number
+        (
+            "username7",
+            ["not_a_number", "10"],
+            "https://monzo.me/username7",
+        ),  # number in the wrong place
     ],
 )
 def test_e2e_url_generator(

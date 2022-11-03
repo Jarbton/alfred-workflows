@@ -19,7 +19,7 @@ Transform provided text to various cases.
 
 
 
-### Monzo Link Generator - [Download v1.0.3](workflows/monzo/monzo.alfredworkflow)
+### Monzo Link Generator - [Download v1.0.4](workflows/monzo/monzo.alfredworkflow)
 
 Generate Monzo.me link providing cost and description.
 
