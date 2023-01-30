@@ -31,6 +31,23 @@ Generate Monzo.me link providing cost and description.
 - Second arg - description
 
 
+### Store - [Download v1.0.0](workflows/store/store.alfredworkflow)
+
+Store URLs and open them in the browser.
+
+![store screenshot](workflows/store/src/store_screenshot.png)
+
+#### Usage
+##### Storing URLS
+- Keyword: `st`
+- First arg - keyword
+- Second arg - url
+
+##### Opening URLs
+- Keyword: `op`
+- First arg - keyword
+
+
 ## Dev Setup
 ### Prerequisites
 - [Poetry](https://python-poetry.org/docs/#installation)
