@@ -1,48 +1,26 @@
-from json import dumps, loads
 from sys import argv, stderr
 
-# TODO: Make command to list bookmarks
-
-
-def load_store():
-    """
-    Load store from file.
-    """
-    with open("store.json", "r") as store_file:
-        store = loads(store_file.read())
-    return store
+from utils import load_store
 
 
 def main():
     """
-    Main function which takes input from alfred with argv and
-    returns a json of transform strings by printing to stdout.
+    Main function to open stored URLs.
+
+    Gets store from harded coded file located in utils.py
     """
+    # Get input from Alfred
     input_string = argv[1]
-    print(f"Input: {input_string}", file=stderr)
 
-    output_strings = ""  # find_url(input_string)
+    # Check if input is in store
+    store = load_store()
+    if input_string in store:
+        url = store.get(input_string)
 
-    alfred_results = []
-    for key, value in output_strings.items():
-        result = {
-            "title": value,
-            "subtitle": f"{key.title()} Case",
-            "arg": value,
-            "autocomplete": value,
-            "icon": {"path": f"./icons/{key}.png"},
-            "mods": {
-                "cmd": {
-                    "subtitle": f"Copy {key} case to clipboard",
-                    "arg": value,
-                }
-            },
-        }
-        alfred_results.append(result)
-
-    response = dumps({"items": alfred_results})
-
-    print(response, end="")
+        # Return to Alfred
+        print(url, end="")
+    else:
+        print("Keyword not found in store", file=stderr)
 
 
 if __name__ == "__main__":
