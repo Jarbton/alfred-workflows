@@ -4,11 +4,11 @@ A repo for maintaining Alfred 5 workflows.
 The majority of the workflows are Python variations of [rknightuk's JavaScript alfred-workflows](https://github.com/rknightuk/alfred-workflows).
 
 ## Workflows
-### Text Transform - [Download v1.0.2](workflows/text-transform/texttransform.alfredworkflow)
+### Text Transform - [Download v1.0.2](workflows/text_transform/text_transform.alfredworkflow)
 
 Transform provided text to various cases.
 
-![text-transform screenshot](workflows/text-transform/src/texttransform_screenshot.png)
+![text_transform screenshot](workflows/text_transform/src/text_transform_screenshot.png)
 
 
 #### Usage
@@ -19,7 +19,7 @@ Transform provided text to various cases.
 
 
 
-### Monzo Link Generator - [Download v1.0.3](workflows/monzo/monzo.alfredworkflow)
+### Monzo Link Generator - [Download v1.0.4](workflows/monzo/monzo.alfredworkflow)
 
 Generate Monzo.me link providing cost and description.
 
@@ -29,6 +29,25 @@ Generate Monzo.me link providing cost and description.
 - Keyword: `monzo`
 - First arg - cost
 - Second arg - description
+
+
+### Store - [Download v1.0.0](workflows/store/store.alfredworkflow)
+
+Store URLs and open them in the browser.
+
+![store screenshot](workflows/store/src/store_screenshot.png)
+
+![store open screenshot](workflows/store/src/store_open_screenshot.png)
+
+#### Usage
+##### Storing URLS
+- Keyword: `st`
+- First arg - keyword
+- Second arg - url
+
+##### Opening URLs
+- Keyword: `op`
+- First arg - keyword
 
 
 ## Dev Setup
