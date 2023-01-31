@@ -1,6 +1,6 @@
 from sys import argv, stderr
 
-from utils import load_store, save_store
+from utils import StoreItem, load_store, save_store
 
 
 def main():
@@ -27,9 +27,13 @@ def main():
         print("Keyword is already in the store!")
         return
 
+    # Check if url is valid and add http if not
+    if not url.startswith("http"):
+        url = "http://" + url
+
     # Add keyword and url to store
-    store[keyword] = url
-    save_store(store)
+    item = StoreItem(keyword, url)
+    save_store(item)
 
     # Return to Alfred
     print(f"Added {keyword} to store", end="")

@@ -37,6 +37,8 @@ Store URLs and open them in the browser.
 
 ![store screenshot](workflows/store/src/store_screenshot.png)
 
+![store open screenshot](workflows/store/src/store_open_screenshot.png)
+
 #### Usage
 ##### Storing URLS
 - Keyword: `st`

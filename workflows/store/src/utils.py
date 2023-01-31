@@ -30,12 +30,14 @@ def load_store() -> list[StoreItem]:
         return [StoreItem(**item) for item in json.load(f)]
 
 
-def save_store(store: list[StoreItem]):
+def save_store(item: StoreItem):
     """
     Save store to file.
 
     Args:
-        store (list[StoreItem]): Store to save.
+        item (StoreItem): Store item to save.
     """
+    store = load_store()
+    store.append(item)
     with open(STORE_PATH, "w") as f:
         json.dump([item.__dict__ for item in store], f)

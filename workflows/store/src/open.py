@@ -1,4 +1,5 @@
-from sys import argv, stderr
+from json import dumps
+from sys import argv
 
 from utils import load_store
 
@@ -14,13 +15,22 @@ def main():
 
     # Check if input is in store
     store = load_store()
-    if input_string in store:
-        url = store.get(input_string)
 
-        # Return to Alfred
-        print(url, end="")
-    else:
-        print("Keyword not found in store", file=stderr)
+    # Generate Alfred response
+    alfred_results = []
+    for item in store:
+        if input_string in item.keyword:
+            result = {
+                "title": item.keyword,
+                "subtitle": item.url,
+                "arg": item.url,
+                "autocomplete": item.keyword,
+            }
+            alfred_results.append(result)
+
+    response = dumps({"items": alfred_results})
+
+    print(response, end="")
 
 
 if __name__ == "__main__":
