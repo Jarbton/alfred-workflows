@@ -31,7 +31,7 @@ Generate Monzo.me link providing cost and description.
 - Second arg - description
 
 
-### Store - [Download v1.0.0](workflows/store/store.alfredworkflow)
+### Store - [Download v1.0.1](workflows/store/store.alfredworkflow)
 
 Store URLs and open them in the browser.
 
