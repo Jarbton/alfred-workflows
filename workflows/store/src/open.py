@@ -19,7 +19,7 @@ def main():
     # Generate Alfred response
     alfred_results = []
     for item in store:
-        if input_string in item.keyword:
+        if input_string.lower() in item.keyword.lower():
             result = {
                 "title": item.keyword,
                 "subtitle": item.url,

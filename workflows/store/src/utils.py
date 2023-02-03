@@ -2,7 +2,10 @@ import json
 import os
 from dataclasses import dataclass
 
-STORE_PATH = os.path.join(os.path.dirname(__file__), "store.json")
+# STORE_PATH = os.path.join(os.path.dirname(__file__), "store.json")
+# Find path to Workflow Data folder
+# https://www.alfredapp.com/help/workflows/advanced/variables/
+STORE_PATH = os.path.join(os.environ["alfred_workflow_data"], "store.json")
 
 
 @dataclass
@@ -22,6 +25,10 @@ def load_store() -> list[StoreItem]:
     Returns:
         list[StoreItem]: Store.
     """
+    # Check if directory exists
+    if not os.path.exists(os.path.dirname(STORE_PATH)):
+        os.makedirs(os.path.dirname(STORE_PATH))
+
     # Check if store exists
     if not os.path.exists(STORE_PATH):
         return []
@@ -30,14 +37,27 @@ def load_store() -> list[StoreItem]:
         return [StoreItem(**item) for item in json.load(f)]
 
 
-def save_store(item: StoreItem):
+def save_store_item(item: StoreItem):
     """
-    Save store to file.
+    Save single store to file.
 
     Args:
         item (StoreItem): Store item to save.
     """
     store = load_store()
     store.append(item)
+    save_store(store)
+
+
+def save_store(items: list[StoreItem]):
+    """
+    Save store to file.
+
+    Args:
+        items (list[StoreItem]): Store items to save.
+    """
+    if not os.path.exists(os.path.dirname(STORE_PATH)):
+        os.makedirs(os.path.dirname(STORE_PATH))
+
     with open(STORE_PATH, "w") as f:
-        json.dump([item.__dict__ for item in store], f)
+        json.dump([item.__dict__ for item in items], f)
