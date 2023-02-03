@@ -1,6 +1,6 @@
 from sys import argv, stderr
 
-from utils import StoreItem, load_store, save_store
+from utils import StoreItem, load_store, save_store_item
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
 
     # Add keyword and url to store
     item = StoreItem(keyword, url)
-    save_store(item)
+    save_store_item(item)
 
     # Return to Alfred
     print(f"Added {keyword} to store", end="")
