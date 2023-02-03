@@ -31,7 +31,7 @@ Generate Monzo.me link providing cost and description.
 - Second arg - description
 
 
-### Store - [Download v1.0.1](workflows/store/store.alfredworkflow)
+### Store - [Download v1.0.2](workflows/store/store.alfredworkflow)
 
 Store URLs and open them in the browser.
 
@@ -48,6 +48,8 @@ Store URLs and open them in the browser.
 ##### Opening URLs
 - Keyword: `op`
 - First arg - keyword
+- Hold `⌘` to copy the URL to clipboard and paste on cursor
+- Hold `⌥` to delete the URL from the store
 
 
 ## Dev Setup
